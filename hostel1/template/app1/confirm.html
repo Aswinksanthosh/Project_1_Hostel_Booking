@@ -1,0 +1,26 @@
+{% extends 'app1/base2.html' %}
+{% block base %}
+{%load static %}
+<a class="btn btn-info" href="\a1/search">got to search</a>
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+<script src="{% static 'js/date.js' %}"></script>
+<h2>Please confirm your booking</h2>
+<pre>Name: {{ hname }}</pre>
+<pre>Check-in: {{ ck_in }}</pre>
+<pre>Check-out: {{ ck_out }}</pre>
+<pre>Sharing: {{ sharing }}</pre>
+<pre>Price: {{ price }} ₹</pre>
+<form action="\a1/confirm" method="POST">
+    {% csrf_token %}
+    <div style="display: none;">
+    <input sty type="text" name="hname" value="{{ hname }}">
+    <input sty type="number" name="h_id" value="{{ h_id }}">
+    <input type="text" name="ck_in" value="{{ck_in}}">
+    <input type="text" name="ck_out" value="{{ck_out}}">
+    <input type="text" name="sharing" value="{{sharing}}">
+    <input type="number" name="price" value="{{price}}">
+    <input type="text" name="field" value="{{field}}">
+    </div>
+<input style="color: blue;" type="submit" value="CONFIRM">
+</form>
+{% endblock %}

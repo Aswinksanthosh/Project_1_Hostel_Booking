@@ -1,0 +1,121 @@
+{% extends 'app1/base2.html' %}
+{% block base %}
+{% load static %}
+<script>
+function hostel_saved(){alert('DATA SAVED SUCCESSFULLY')}
+function uploadimg()
+{
+  document.getElementById("img1").style.display='none';
+  document.getElementById("clicktochange").style.display='none';
+  document.getElementById("cancelp").style.display='block';
+  document.getElementById("imgup1").style.display='block';
+}
+function upcancel()
+{
+  document.getElementById("img1").style.display='block';
+  document.getElementById("clicktochange").style.display='block';
+  document.getElementById("cancelp").style.display='none';
+  document.getElementById("imgup1").style.display='none';
+}
+</script>
+{% if saved %}<li onclick="hostel_saved()">hey</li>{% endif %}
+<script src="{% static 'js/nav.js' %}"></script>
+<link rel="stylesheet" href="{% static 'css/admin_page.css' %}">
+<link rel="stylesheet" href="{% static 'css/hosteladdAI.css' %}">
+<body>
+<div class="hostel1" style="justify-self:center">
+    <center><h3 style="color:brown;">UPDATE HOSTEL DETAILS</h3></center>  
+    <form method="POST" class="signin-form" enctype="multipart/form-data">
+      <a href="admin_hostel">BACK</a>
+      {% csrf_token %}
+      <table>
+        <tr>
+          <th>NAME:</th>
+          <td><input type="text" name="name" value="{{h.name}}" placeholder="Hostel Name*" class="contact-input" autofocus
+            required /></td>
+        </tr>
+        <tr>
+          <th>DESCRIPTION   _</th>
+          <td><input type="text" name="desc" value="{{h.desc}}" placeholder="A description for Hostel*" class="contact-input" autofocus
+            required/></td>
+        </tr>
+        <tr>
+          <th>TYPES</th>
+          <th>PRICE</th>
+          <th>NO OF ROOMS</th>
+        </tr>
+        <tr>
+          <TH>4 SHARE</TH>
+          <td>
+            <input type="number" value="{{h.price4}}" name="price4" required="" id="id_price1">
+          </td>
+
+          <td>
+            <input type="number" value="{{h.share4}}" name="share4" required="" id="id_share1">
+          </td>
+        </tr>
+        <tr>
+          <th>6 SHARE</th>
+          <td>
+            <input type="number" value="{{h.price6}}" name="price6" required="" id="id_price2">
+          </td>
+          <td>
+            <input type="number" value="{{h.share6}}" name="share6" required="" id="id_share2">
+          </td>
+        </tr>
+        <tr>
+          <th>8 SHARE</th>
+          <td>
+            <input type="number" name="price8" value="{{h.price8}}" required="" id="id_price8">
+          </td>
+          <td>
+            <input type="number" name="share8" required="" value="{{h.price10}}" id="id_share8">
+          </td>
+        </tr>
+        <tr>
+          <th>10 SHARE</th>
+          <td>
+            <input type="number" name="price10" required="" id="id_price10" value="{{h.price10}}" >
+          </td>
+          <td>
+            <input type="number" name="share10" required="" id="id_share10" value="{{h.share10}}" >
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="id_address">Address:</label>
+          </td>
+          <td>
+            <textarea name="address" cols="40" rows="10" maxlength="50" required="" id="id_address">{{h.address}}</textarea>
+          </td>
+          <td class="grid" style="padding: 10px;">
+            <div id="clicktochange">click on image to change</div>
+        <img onclick="uploadimg()" id="img1" style='width: 300px;' src="{{h.img.url}}" alt="">
+        <input style="display: none;" id="imgup1" type="file" name="img" value="{{h.img}}">
+        <div class="btn btn-primary" style="display: none;" id="cancelp" onclick="upcancel()" >CANCEL</div>
+        </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="id_phno">Phno:</label>
+          </td>
+          <td>
+            <input type="number" name="phno" required="" value="{{h.phno}}" id="id_phno">
+          </td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>
+            <label for="id_img">Img:</label>
+          </td>
+          <td>
+
+        <tr>
+          <td><input type="email" name="gmail" value="{{gmail}}" style="display: none;" ></td>
+        </tr>
+      </table>
+      <input type="submit" class="btn" value="SUBMIT">
+    </form>
+      </div>
+
+{% endblock %}

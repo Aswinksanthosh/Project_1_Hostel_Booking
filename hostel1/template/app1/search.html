@@ -1,0 +1,70 @@
+{% extends 'app1/base2.html' %}
+{% block base %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+<link rel="stylesheet" href="{% static 'css/hostel_blocks.css' %}">
+<script src="{% static 'js/date.js' %}"></script>
+<style>
+    body{background-image: url("{% static 'images/OIP.jpg' %}");background-repeat: no-repeat;background-size: 100%; }
+</style>
+<script>
+function confirmDelete(sharing)
+{
+  if(confirm("Are you sure you want to delete this booking?"))
+  {
+    window.location.href = `del_booking_single/${sharing}`;
+  }
+}
+</script>
+<body>
+<div class="maindiv">
+{% if userdet.h_id %}
+<div class="hostel" id="booked" style="width:200px;height: 300px;position: fixed;padding: 5px;right: 10px;top: 110px;">
+  <strong><h4 style="color: green;">BOOKED HOSTEL</h4></strong>
+  <a href='user_submit/{{formdet.h_id}}'>
+      <img style="width: 200px;border-radius: 10px;" src="{{formdet.img.url}}" alt="not working"><br>
+      <div class="det">{{formdet.name}}</div>
+      <div class="det" style="border-radius: 0;"><img src="{% static 'images/location.png' %}" style="height:20px;" alt="">{{formdet.address}}</div>
+      <div class="det">{{userdet.price}}₹</div>
+      <div class="date" >{{userdet.ck_in}}</div>
+      <div class="date" >{{userdet.ck_out}}</div>
+      <a href="javascript:void(0)" class="btn btn-danger" onclick="confirmDelete('{{ userdet.sharing }}')">DELETE</a>
+  </a>
+</div>
+{% endif %}
+</div>
+<nav class="container navbar navbar-default" id="centerr" style="width: max-content;position: static;">
+  <form method="POST" action="search">
+    {% csrf_token %}
+    <ul class="nav navbar-nav" id="search">
+      <li><img class="imgpng" src="{% static 'images/search.png' %}" alt="">
+        <input type="text" name="address" placeholder="Enter a destination"></li>
+      <li><input type="submit" value="SEARCH"></li>
+      <!-- <img class="imgpng" src="{% static 'images/date.png' %}" alt=""> -->
+    </ul>
+  </form>
+</nav>
+<script src="{% static 'js/disu.js' %}"></script>
+{% if data %}
+<div class="block_div">
+{% for i in data %}
+
+<div class="hostels">
+  <a href='user_submit/{{i.h_id}}' id="hostel-link">
+      <img src="{{i.img.url}}" alt="not working" id="hostel-img">
+      <div class="hostel-content">
+          <div id="name" class="hostel-name">{{i.name}}</div>
+          <div id="address" class="det" style="border-radius: 0;"><img src="{% static 'images/location.png' %}" style="height:20px;" alt="">{{i.address}}</div>
+          <div id="price" class="hostel-price">{{i.price4}}₹</div>
+          {% if i.rating %}
+          <div class="hostel-rating">{{i.rating}}</div>
+          {% endif %}
+      </div>
+  </a>
+</div>
+{% endfor %}
+{% endif %}
+</div>
+</body>
+
+{% endblock %}+

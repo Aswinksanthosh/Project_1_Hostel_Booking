@@ -1,0 +1,103 @@
+{% extends 'app1/base2.html' %}
+{% block base %}
+{% load static %}
+<script>function hostel_saved(){alert('DATA SAVED SUCCESSFULLY')}</script>
+{% if saved %}<li onclick="hostel_saved()">hey</li>{% endif %}
+<script src="{% static 'js/nav.js' %}"></script>
+<link rel="stylesheet" href="{% static 'css/admin_page.css' %}">
+<link rel="stylesheet" href="{% static 'css/hosteladdAI.css' %}">
+<body>
+<div class="hostel1" style="justify-self:center">
+    <center><h3 style="color:brown;">ADD HOSTEL DETAILS</h3></center>  
+    <form method="post" class="signin-form" enctype="multipart/form-data">
+      <a href="admin_hostel">BACK</a>
+      {% csrf_token %}
+      <table>
+        <tr>
+          <th>NAME:</th>
+          <td><input type="text" name="name" placeholder="Hostel Name*" class="contact-input" autofocus
+            required /></td>
+        </tr>
+        <tr>
+          <th>DESCRIPTION   _</th>
+          <td><input type="text" name="desc" placeholder="A description for Hostel*" class="contact-input" autofocus
+            required/></td>
+        </tr>
+        <tr>
+          <th>TYPES</th>
+          <th>PRICE</th>
+          <th>NO OF ROOMS</th>
+        </tr>
+        <tr>
+          <TH>4 SHARE</TH>
+          <td>
+            <input type="number" value="0" name="price4" required="" id="id_price1">
+          </td>
+
+          <td>
+            <input type="number" value="0" name="share4" required="" id="id_share1">
+          </td>
+        </tr>
+        <tr>
+          <th>6 SHARE</th>
+          <td>
+            <input type="number" value="0" name="price6" required="" id="id_price2">
+          </td>
+          <td>
+            <input type="number" value="0" name="share6" required="" id="id_share2">
+          </td>
+        </tr>
+        <tr>
+          <th>8 SHARE</th>
+          <td>
+            <input type="number" name="price8" value="0" required="" id="id_price8">
+          </td>
+          <td>
+            <input type="number" name="share8" required="" value="0" id="id_share8">
+          </td>
+        </tr>
+        <tr>
+          <th>10 SHARE</th>
+          <td>
+            <input type="number" name="price10" required="" id="id_price10" value="0" >
+          </td>
+          <td>
+            <input type="number" name="share10" required="" id="id_share10" value="0" >
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="id_address">Address:</label>
+          </td>
+          <td>
+            <textarea name="address" cols="40" rows="10" maxlength="50" required="" id="id_address"></textarea>
+          </td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>
+            <label for="id_phno">Phno:</label>
+          </td>
+          <td>
+            <input type="number" name="phno" required="" id="id_phno">
+          </td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>
+            <label for="id_img">Img:</label>
+          </td>
+          <td>
+            <input type="file" name="img" required="" id="id_img">
+          </td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><input type="email" name="gmail" value="{{gmail}}" style="display: none;" ></td>
+        </tr>
+      </table>
+      <input type="submit" class="btn" value="SUBMIT">
+    </form>
+      </div>
+
+{% endblock %}

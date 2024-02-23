@@ -1,0 +1,62 @@
+  .overlay {
+    z-index: 999;
+  background-image: url(bg-image.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: blur(5px);
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s ease-in-out;
+  visibility: visible;
+  opacity: 1;
+}
+
+.overlay-content {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  text-align: center;
+  width: 80%;
+}
+
+.continue-btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.overlay.hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+
+  .content-wthree{width: 600px;}
+  .mainn{display: flex;width:max-content;}
+  .base {
+    background: linear-gradient(to right, #f8f9fa, #e9ecef);
+  padding: 20px;
+  height: 258px;
+  margin: 15px;
+  margin-top: 65px;
+  width: 250px;
+  display: grid;
+  place-items: center;
+  border-radius: 20px;}
+
+p{
+font-family: Arial, sans-serif;
+font-size: 16px;
+color: #495057;
+text-align: center;
+}

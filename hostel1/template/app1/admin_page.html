@@ -1,0 +1,29 @@
+{% extends 'app1/base2.html' %}
+{% block base %}
+{% load static %}
+<script src="{% static 'js/nav.js' %}"></script>
+<link rel="stylesheet" href="{% static 'css/hostel_blocks.css' %}">
+<body>
+    {% if data %}
+    <div class="block_div">
+    {% for i in data %}
+    
+    <div class="hostels">
+      <a href='hostel_update/{{i.h_id}}' id="hostel-link">
+          <img src="{{i.img.url}}" alt="not working" id="hostel-img">
+          <div class="hostel-content">
+              <div id="name" class="hostel-name">{{i.name}}</div>
+              <div id="address" class="det" style="border-radius: 0;"><img src="{% static 'images/location.png' %}" style="height:20px;" alt="">{{i.address}}</div>
+              <div id="price" class="hostel-price">{{i.price4}}₹</div>
+              {% if i.rating %}
+              <div class="hostel-rating">{{i.rating}}</div>
+              {% endif %}
+          </div>
+      </a>
+    </div>
+    {% endfor %}
+    {% endif %}
+    </div><br>
+<a href="hosteladd" class="btn" style="font-size: 15px;color: rgb(209, 248, 117);background: #4a27ca;border: none;padding: 14px 14px;font-weight: 800;transition: .3s ease;-webkit-transition: .3s ease;" onclick="">ADD HOSTELS</a>
+</div>
+{% endblock %}

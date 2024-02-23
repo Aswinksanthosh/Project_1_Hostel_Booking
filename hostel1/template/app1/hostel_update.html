@@ -1,0 +1,110 @@
+{% extends 'app1/base2.html' %}
+{% block base %}
+{% load static %}
+<script>
+function hostel_saved(){alert('DATA SAVED SUCCESSFULLY')}
+function uploadimg()
+{
+  document.getElementById("img1").style.display='none';
+  document.getElementById("clicktochange").style.display='none';
+  document.getElementById("cancelp").style.display='block';
+  document.getElementById("imgup1").style.display='block';
+}
+function upcancel()
+{
+  document.getElementById("img1").style.display='block';
+  document.getElementById("clicktochange").style.display='block';
+  document.getElementById("cancelp").style.display='none';
+  document.getElementById("imgup1").style.display='none';
+}
+</script>
+{% if saved %}<li onclick="hostel_saved()">hey</li>{% endif %}
+<script src="{% static 'js/nav.js' %}"></script>
+<link rel="stylesheet" href="{% static 'css/admin_page.css' %}">
+<link rel="stylesheet" href="{% static 'css/hosteladdAI.css' %}">
+<body>
+<div class="hostel1" style="justify-self:center">
+    <center><h3 style="color:brown;">UPDATE HOSTEL DETAILS</h3></center>  
+    <form method="POST" class="signin-form" enctype="multipart/form-data">
+      <a href="\a1/admin_hostel">BACK</a>
+      {% csrf_token %}
+      <table>
+        <tr>
+          <th>NAME:</th>
+          <td>{{form.name}}</td>
+        </tr>
+        <tr>
+          <th>DESCRIPTION   _</th>
+          <td>{{form.desc}}</td>
+        </tr>
+        <tr>
+          <th>TYPES</th>
+          <th>PRICE</th>
+          <th>NO OF ROOMS</th>
+        </tr>
+        <tr>
+          <TH>4 SHARE</TH>
+          <td>{{form.price4}}</td>
+          <td>{{form.share4}}</td>
+        </tr>
+        <tr>
+          <th>6 SHARE</th>
+          <td>{{form.price6}}</td>
+          <td>{{form.share6}}</td>
+        </tr>
+        <tr>
+          <th>8 SHARE</th>
+          <td>{{form.price8}}</td>
+          <td>{{form.share8}}</td>
+        </tr>
+        <tr>
+          <th>10 SHARE</th>
+          <td>{{form.price10}}</td>
+          <td>{{form.share10}}</td>
+        </tr>
+        <tr>
+          <td>
+            <label for="id_address">Address:</label>
+          </td>
+          <td>{{form.address}}</td>
+          <td class="grid" style="padding: 10px;">
+            <div id="clicktochange">click on image to change</div>
+            <img onclick="uploadimg()" id="img1" style='width: 300px;' src="{{h.img.url}}" alt="">
+            {{form.img}}
+            <div class="btn btn-primary" style="display: none;" id="cancelp" onclick="upcancel()" >CANCEL</div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="id_phno">Phno:</label>
+          </td>
+          <td>
+            {{form.phno}}
+          </td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>
+            <label for="id_img">Img:</label>
+          </td>
+          <td>
+            {{form.gmail}}
+          </td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <input type="submit" value="Save">
+          </td>
+          <td>
+            <a href="/a/del_booking_single/{{form.name}}"> <!--Delete Remaining delete hostel using name-->
+          </a>
+          </td>
+        </tr>
+      </table>
+    </form>
+
+      </div>
+
+{% endblock %}

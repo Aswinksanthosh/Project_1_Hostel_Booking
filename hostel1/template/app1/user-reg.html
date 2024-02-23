@@ -1,0 +1,29 @@
+<form action='userreg' id="f1" method="post" class="signin-form">
+    {% csrf_token %}
+    <div class="input-grids">
+      <input type="text" name="gmail" id="gmail" placeholder="Gmail*" class="contact-input" autofocus
+        required="" />
+      <input type="password" name="pwd" id="pwd1" placeholder="Password*" class="contact-input" autofocus
+        required="" />
+      <input type="password" name="pwd1" id="pwd2" placeholder="Confirm Password*" class="contact-input" autofocus
+        required="" />
+      <input type="text" name="name" id="name" placeholder="Full Name*" class="contact-input" autofocus
+        required="" />
+      <input type="number" name="phno" id="phno" placeholder="Ph N.O.*" class="contact-input" autofocus
+        required="" />
+
+        <!-- <textarea name="w3lMessage" id="w3lMessage" placeholder="Your Query*" required="" autofocus></textarea> -->
+</div>
+    <button class="btn" type="submit" onclick="return Validate()">SUBMIT</button>
+</form>
+<form action='login' id="f2" method="post" class="signin-form">
+    {% csrf_token %}
+    <div class="input-grids">
+      <input type="text" name="gmail" id="gmail1" placeholder="Gmail*" class="contact-input" autofocus
+        required="" />
+      <input type="password" name="pwd" id="pwd3" placeholder="Password*" class="contact-input" autofocus
+        required="" />
+        <!-- <textarea name="w3lMessage" id="w3lMessage" placeholder="Your Query*" required="" autofocus></textarea> -->
+</div>
+    <button class="btn" type="submit">SUBMIT</button>
+</form>

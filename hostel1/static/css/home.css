@@ -1,0 +1,68 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+nav {
+  width: 600px;
+  border-radius: 10px;
+  display:flex;
+  text-align: center;
+  position: relative;
+  background: #000;
+}
+nav label {
+  width: 100%;
+  height: 100%;
+  line-height: 60px;
+  font-size: 18px;
+  font-weight: 400;
+  border-radius: 10px;
+  color: #fff;
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+
+nav label i {
+  margin-right: 4px;
+}
+nav .slider {
+  position: absolute;
+  height: 100%;
+  width: 20%;
+  background: #f00;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+  transition: all 0.4s ease;
+  z-index: 1;
+}
+#home:checked ~ nav label.home,
+#blog:checked ~ nav label.blog,
+#code:checked ~ nav label.code,
+#help:checked ~ nav label.help,
+#about:checked ~ nav label.about {
+  color: #fff;
+}
+#blog:checked ~ nav .slider {
+  left: 20%;
+}
+#code:checked ~ nav .slider {
+  left: 40%;
+}
+#help:checked ~ nav .slider {
+  left: 60%;
+}
+#about:checked ~ nav .slider {
+  left: 80%;
+}
+input[type="radio"] {
+  display: none;
+}
+
+
+/* extra editings */
+#align{display: inline;}
+.container{width: auto;}
+#centerr{border-radius: 50px;height: min-content;}
+input{min-height: 5rem;border: none;padding: 1rem;}
+.imgpng{height: 3rem;}

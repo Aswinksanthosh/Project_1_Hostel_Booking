@@ -1,0 +1,33 @@
+C:\Users\libiu\Downloads\Documents\BudgetBuddy
+C:\Users\libiu\OneDrive\Documents\django_projects
+python manage.py runserver
+
+
+django-admin startproject project_name
+python manage.py startapp appname
+
+----ORDER----
+    CreateEnv
+py -m venv env
+    Activate
+.\env\Scripts\Activate
+    install django
+pip install django
+    create project
+django-admin startproject project_name
+    create app inside project
+python manage.py startapp app1
+    Migrate
+python manage.py migrate
+    makemigrations
+python manage.py makemigrations
+    CreateSuperUser
+migrate tables
+    python manage.py makemigrations app1
+py manage.py createsuperuser
+    runserver
+py manage.py runserver
+
+
+how to delete migrations: db.sqlite3, 
+python manage.py makemigrations

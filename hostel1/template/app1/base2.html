@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<!-- extra changes -->
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" media="all" />
+<link rel="stylesheet" href="{% static 'css/base2.css' %}">
+<script src="{% static 'js/jss.js' %}">
+url1="{% static 'images/navicon.png' %}"</script>
+<script>
+function homee(user) {
+  if (user === 'ADMIN') {
+    window.location.href = "\\a1/admin_hostel";
+  } else if (user === 'USER') {
+    window.location.href = "\\a1/search";
+  }
+  else{
+    alert('noooo')
+  }
+}
+
+</script>
+</head>
+<style>
+  body{background-color:#e5e4cf ;
+  background-color: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(17,17,150,1) 35%, rgba(0,212,255,1) 100%);}
+  #icon{width: 5rem;}
+  body{margin: 0rem;}
+  #fl{float: right;bottom: 400px;}
+  #heading {
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 1px 0px 5px #333;
+    padding: 10px 20px;
+   
+}
+
+</style>
+<body>
+{% load static %}
+<nav class="navbar navbar-default" id="align" style="background-color:  #f7f6e0;background-color: linear-gradient(90deg, rgba(238,174,202,1) 0%, rgb(255, 255, 255) 100%);">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+      {% if user %}
+      <li id="home"><a onclick="homee('{{user}}')"><img id="icon" src="{% static 'images/navicon.png' %}" alt=""><center style="color:#ffffff ;">HOME</center></a></li>
+
+      {% endif %}
+    </ul>
+<div id="log"><center><h1 id="heading" style="position:absolute;left:40%;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">BudgetBuddy</h1></center>
+      <ul class="nav navbar-nav" id="fl">
+        {% if user %}<li id="user" style="color: hsla(15, 91%, 38%, 0.196);font-weight:600">{{user}}</li>{% endif %}<br>
+        {% if login %} <li style="color: #000000;" id="user-admin">{{login}}<a href="\a1/logout"><center><strong style="color: #000000;">LOGOUT</strong></center></a></li>
+        {% else %} <li ><a href="userreg"><center><strong style="color: #000000;">LOGIN/SIGNUP</strong></center></a></li>
+        {% endif %}
+      </ul> 
+      <!-- run the function here hidee({{user}}) -->
+      <script>
+        function hidee(user) {
+          if (user == 'ADMIN' || user == 'USER') {
+            document.getElementById("home").style.display = "block";
+          } else {
+            document.getElementById("home").style.display = "none";
+            document.getElementById("user").style.display = "none";
+          }
+        }
+      
+        // Call the function on page load
+        hidee('{{user}}');
+      </script>
+    </div>
+  </div>
+</nav>
+{% block base %}
+
+
+{% endblock base %}
+</body>
+</html>

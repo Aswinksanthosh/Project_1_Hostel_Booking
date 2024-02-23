@@ -1,0 +1,47 @@
+  /* Form container */
+  .signin-form {
+    width: 80%; /* adjust as needed */
+    margin: 0 auto; /* center form on the page */
+    padding: 20px; /* add some padding */
+    border: 1px solid #ccc; /* add a border */
+    border-radius: 10px; /* round the corners */
+    background-color: #f9f9f9; /* add a background color */
+  }
+
+  /* Form input fields */
+  .signin-form input[type="text"],
+  .signin-form input[type="number"],
+  .signin-form input[type="email"],
+  .signin-form textarea {
+    width: 100%; /* make the input fields take up the full width */
+    padding: 12px 20px; /* add some padding */
+    margin: 8px 0; /* add some margin */
+    box-sizing: border-box; /* include the padding and border in the size */
+    border: 1px solid #ccc; /* add a border */
+    border-radius: 30px; /* round the corners */
+    background-color: #fff; /* add a background color */
+  }
+
+  /* Form labels */
+  .signin-form label {
+    font-size: 16px; /* increase the font size */
+    color: #555; /* change the text color */
+  }
+
+  /* Form submit button */
+  .signin-form input[type="submit"] {
+    width: 100%; /* make the button take up the full width */
+    background-color: #4CAF50; /* change the background color */
+    color: white; /* change the text color */
+    padding: 14px 20px; /* add some padding */
+    margin: 8px 0; /* add some margin */
+    border: none; /* remove the border */
+    border-radius: 4px; /* round the corners */
+    cursor: pointer; /* change the cursor */
+    font-size: 16px; /* increase the font size */
+  }
+
+  /* Form submit button hover effect */
+  .signin-form input[type="submit"]:hover {
+    background-color: #45a049; /* change the background color on hover */
+  }

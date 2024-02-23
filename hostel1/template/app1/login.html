@@ -1,0 +1,78 @@
+  {% extends 'app1/base2.html' %}
+  {% block base %}
+  {%load static %}
+  <script src="{% static 'js/nav.js' %}"></script>
+  <link rel="stylesheet" href="{% static 'css/hostel_blocks.js' %}">
+  <style>
+    .content-wthree{width: 600px;}
+    .mainn{display: flex;width:max-content;}
+    .base {
+      background: linear-gradient(to right, #f8f9fa, #e9ecef);
+    padding: 20px;
+    height: 258px;
+    margin: 15px;
+    margin-top: 65px;
+    width: 250px;
+    display: grid;
+    place-items: center;
+    border-radius: 20px;}
+
+p{
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  color: #495057;
+  text-align: center;
+}
+
+  </style>
+  <body>
+    <div class="mainn">
+      <div class="base">      
+        <strong><h3 style="color: #b28117;">Login as User</h3></strong> 
+<p>"Welcome to our hostel booking platform where you can easily book your stay for multiple months.</p> <p> Choose from a variety of room types and enjoy a simple, user-friendly design.</p>  "
+      </div>
+                      <div class="content-wthree grid">
+                        <strong style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;color:blue;justify-content: center;">USER LOGIN</strong><br>
+                          <div class="btn-group" role="group" aria-label="Basic example">
+                              <button id="b1" onclick="signuponclick()" class="btn btn-info btn-sm">Sign up</button><button id="b2" onclick="loginonclick()" type="button" class="btn btn-secondary btn-sm">Login</button>
+                              
+                            </div>
+                          <br><br>
+                          <form action='userreg' id="f1" method="post" class="signin-form">
+                              {% csrf_token %}
+                              <div class="input-grids">
+                                <input type="text" name="gmail" id="gmail" placeholder="Gmail*" class="contact-input" autofocus
+                                  required="" />
+                                <input type="password" name="pwd" id="pwd1" placeholder="Password*" class="contact-input" autofocus
+                                  required="" />
+                                <input type="password" name="pwd1" id="pwd2" placeholder="Confirm Password*" class="contact-input" autofocus
+                                  required="" />
+                                <input type="text" name="name" id="name" placeholder="Full Name*" class="contact-input" autofocus
+                                  required="" />
+                                <input type="number" name="phno" id="phno" placeholder="Ph N.O.*" class="contact-input" autofocus
+                                  required="" />
+
+                                  <!-- <textarea name="w3lMessage" id="w3lMessage" placeholder="Your Query*" required="" autofocus></textarea> -->
+                          </div>
+                              <button class="btn" type="submit" onclick="return Validate()">SUBMIT</button>
+                          </form>
+                          <form action='login' id="f2" method="post" class="signin-form">
+                              {% csrf_token %}
+                              <div class="input-grids">
+                                <input type="text" name="gmail" id="gmail1" placeholder="Gmail*" class="contact-input" autofocus
+                                  required="" />
+                                <input type="password" name="pwd" id="pwd3" placeholder="Password*" class="contact-input" autofocus
+                                  required="" />
+                                  <!-- <textarea name="w3lMessage" id="w3lMessage" placeholder="Your Query*" required="" autofocus></textarea> -->
+                          </div>
+                              <button class="btn" type="submit">SUBMIT</button>
+                          </form>
+                          <a style="padding: 3rem;float: right;margin-left: 230px;" href="adminreg">GO TO  ADMIN LOGIN  --></a>
+                      
+      </div>
+      <div class="base">
+        <strong><h3 style="color: #b28117;">Login as ADMIN</h3></strong> 
+        <p>If you are a hostel owner, register as Admin to create and update hostel details, add photos, specify room types and prices.</p> <p> Stay on top of room vacancies and manage guests efficiently."</p>
+      </div>
+      </div>
+  {% endblock %}
