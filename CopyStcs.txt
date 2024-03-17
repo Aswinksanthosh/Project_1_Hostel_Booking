@@ -31,3 +31,5 @@ py manage.py runserver
 
 how to delete migrations: db.sqlite3, 
 python manage.py makemigrations
+
+Checking Connection commit
