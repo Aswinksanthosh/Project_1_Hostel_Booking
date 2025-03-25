@@ -2,7 +2,7 @@
 
 > Hostel Booking Web App — Built for admins and users to manage and book hostel rooms with ease.
 
-![Cover](./assets/COV.png)
+![Cover](./assets/a1.png)
 
 ---
 
@@ -28,13 +28,13 @@
 ## 📸 Screenshots
 
 ### 🔐 Login Page (Admin/User Selection)
-![Login](./assets/a1.png)
+![Login](./assets/b1.png)
 
 ---
 
 ### 🏘️ Hostel Listings
 Users can view all available hostels and prices.
-![Hostel List](./assets/b1.png)
+![Hostel List](./assets/a1.png)
 
 ---
 
